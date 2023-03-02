@@ -13,7 +13,7 @@ export class App extends Component {
     bad: 0,
   };
 
-  updateState = evt => {
+  onLeaveFeedback = evt => {
     this.setState(prevState => {
       return { [evt.target.name]: prevState[evt.target.name] + 1 };
     });
@@ -28,7 +28,7 @@ export class App extends Component {
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={['Good', 'Neutral', 'Bad']}
-            onLeaveFeedback={this.updateState}
+            onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
         <Section title="Statistics">
