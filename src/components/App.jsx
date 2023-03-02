@@ -5,6 +5,7 @@ import { FeedbackOptions } from './FeedbackOptions';
 import { Notification } from './Notification';
 import { countTotalFeedback } from '../functions/countTotalFeedback';
 import { countPositiveFeedbackPercentage } from '../functions/countPositiveFeedbackPercentage';
+import css from '../css/Container.module.css';
 
 export class App extends Component {
   state = {
@@ -19,12 +20,17 @@ export class App extends Component {
     });
   };
 
+  constructor() {
+    super();
+    this.onLeaveFeedback = this.onLeaveFeedback.bind(this);
+  }
+
   render() {
     const { good, neutral, bad } = this.state;
     const total = countTotalFeedback(this.state);
     const positivePercentage = countPositiveFeedbackPercentage(this.state);
     return (
-      <>
+      <div className={css.container}>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={['Good', 'Neutral', 'Bad']}
@@ -44,7 +50,7 @@ export class App extends Component {
             <Notification message="No feedback given" />
           )}
         </Section>
-      </>
+      </div>
     );
   }
 }

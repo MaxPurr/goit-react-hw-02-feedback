@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import css from '../css/Section.module.css';
 
 export class Section extends Component {
   static defaultProps = {
@@ -21,8 +22,8 @@ export class Section extends Component {
   render() {
     const { children } = this.props;
     return (
-      <section>
-        <h3>{this.state.title}</h3>
+      <section className={css.section}>
+        <h3 className={css.title}>{this.state.title}</h3>
         {children}
       </section>
     );

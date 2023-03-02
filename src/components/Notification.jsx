@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import css from '../css/Notification.module.css';
 
 export class Notification extends Component {
   static defaultProps = {
@@ -19,9 +20,9 @@ export class Notification extends Component {
 
   render() {
     return (
-      <>
-        <p>{this.state.message}</p>
-      </>
+      <div className={css.notification_container}>
+        <p className={css.notification_text}>{this.state.message}</p>
+      </div>
     );
   }
 }
